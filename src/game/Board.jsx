@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Board() {
   const [board, setBoard] = useState(Array(15).fill(Array(15).fill(null)));
