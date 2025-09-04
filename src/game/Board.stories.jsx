@@ -1,5 +1,7 @@
+import React from "react"
+import Board from "./Board";
 export default {
-    title: "/src/game/Board.jsx",
+    title: "Game/Board",
     component: () => <h1>Board</h1>,
 }
 

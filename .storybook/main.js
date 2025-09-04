@@ -1,11 +1,9 @@
 
 
 /** @type { import('@storybook/react-vite').StorybookConfig } */
-const config = {
+export default  {
   "stories": [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../src/**/*.stories.@(js|jsx|ts|tsx|mdx)", //scaning src for stories
+    "../src/**/*.stories.@(js|jsx|ts|tsx|mdx)" //scaning src for stories
   ],
   "addons": [
     "@storybook/addon-essentials"
@@ -15,4 +13,3 @@ const config = {
     "options": {}
   }
 };
-export default config;
