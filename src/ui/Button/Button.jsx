@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./Button.module.css";
 
+/**
+ * Button (CSS Modules)
+ * Variants: "primary" | "secondary" | "disabled"
+ */
 export default function Button({
   children,
   variant = "primary",
@@ -10,15 +14,16 @@ export default function Button({
 }) {
   const isDisabled = variant === "disabled";
   const className = `${styles.btn} ${styles[variant] || styles.primary}`;
-  const computerAriaLabel =
+  const computedAriaLabel =
     ariaLabel || (typeof children === "string" ? children : undefined);
+
   return (
     <button
-      className={className}
-      onClick={isDisabled ? undefined : onClick}
       type={type}
-      aria-label={computerAriaLabel}
+      className={className}
       disabled={isDisabled}
+      onClick={isDisabled ? undefined : onClick}
+      aria-label={computedAriaLabel}
     >
       {children}
     </button>
