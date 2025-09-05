@@ -1,17 +1,13 @@
-
-
 /** @type { import('@storybook/react-vite').StorybookConfig } */
-export default  {
-  "stories": [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
-  ],
-  "addons": [
-    "@storybook/addon-essentials"
-  ],
-  "framework": {
-    "name": "@storybook/react-vite",
-    "options": {}
-  }
+export default {
+  // Only load *our* stories from src (we can keep the example folder in the repo,
+  // it just won't be scanned by Storybook)
+  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
+
+
+  addons: ["@storybook/addon-docs"],
+
+  framework: { name: "@storybook/react-vite", options: {} },
+
+  docs: { autodocs: true },
 };
