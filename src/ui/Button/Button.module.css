@@ -23,3 +23,26 @@ box-shadow:0 10px 28px rgba(29,78,216,.35),
 inset 0 0 0 1px rgba(255,255,255,.06)
 ;
 }
+.primary:hover{filter:brightness(1.05);
+    .primary:active{ transform:translateY(1px);}
+}
+.secondary{color:#cbd5e1;
+    background: rgba(30,41,59,.65);
+    border-color: rgba(148,163,184,.28);
+    box-shadow:inset 0 0 0 1px rgba(255, 255, 255, .06);
+}
+.secondary {
+    color: #cbd5e1;
+   
+    background: rgba(30, 41, 59, .65);
+  
+    border-color: rgba(148, 163, 184, .28);
+    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, .28);
+}
+.secondary:hover {
+    filter: brightness(1.05);
+}
+
+.secondary:active {
+    transform: translateY(1px);
+}
