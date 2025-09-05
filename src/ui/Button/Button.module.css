@@ -46,3 +46,18 @@ inset 0 0 0 1px rgba(255,255,255,.06)
 .secondary:active {
     transform: translateY(1px);
 }
+.disabled,
+.btn:disabled {
+    color: #7c8393;
+    background: rgba(51, 65, 85, .40);
+    border-color: rgba(148, 163, 184, .18);
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: .9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none;
+    }
+}
