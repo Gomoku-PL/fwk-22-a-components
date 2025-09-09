@@ -1,0 +1,1 @@
+export { default as Board } from "./game/Board.jsx";
