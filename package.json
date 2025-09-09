@@ -1,18 +1,39 @@
 {
-  "name": "fwk-22-a-components",
+  "name": "@gomoku/components",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "devDependencies": {
     "@storybook/addon-docs": "^9.1.4",
     "@storybook/react-vite": "^9.1.4",
     "prop-types": "^15.8.1",
-    "storybook": "^9.1.4"
+    "storybook": "^9.1.4",
+    "@vitejs/plugin-react": "^4.3.2",
+    "vite": "^5.4.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "dev": "vite",
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
