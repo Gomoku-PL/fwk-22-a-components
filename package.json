@@ -4,10 +4,17 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.1",
+    "@storybook/addon-a11y": "^9.1.4",
     "@storybook/addon-docs": "^9.1.4",
+    "@storybook/addon-vitest": "^9.1.4",
     "@storybook/react-vite": "^9.1.4",
     "prop-types": "^15.8.1",
-    "storybook": "^9.1.4"
+    "storybook": "^9.1.4",
+    "vitest": "^3.2.4",
+    "@vitest/browser": "^3.2.4",
+    "playwright": "^1.55.0",
+    "@vitest/coverage-v8": "^3.2.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
