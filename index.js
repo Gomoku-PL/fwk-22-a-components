@@ -1,1 +1,3 @@
-export { default as Button } from './src/ui/Button/Button.jsx';
+
+export { default as Button } from './ui/Button/Button';
+export { Board } from './ui/Board/Board';
