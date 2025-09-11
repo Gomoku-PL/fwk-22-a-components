@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import "../ui/board/board.css"
 
-function Board() {
-  const [board, setBoard] = useState(Array(15).fill(Array(15).fill(null)));
+function Board({ board: boardProp, size = 15 }) {
+  // If a board prop is provided, use it; otherwise, use internal state for interactivity
+  const [internalBoard, setInternalBoard] = useState(
+    Array.from({ length: size }, () => Array(size).fill(null))
+  );
+  const board = boardProp || internalBoard;
 
   async function handleBoardClick(rowIndex, colIndex) {
-    setBoard((prevBoard) => {
+    if (boardProp) return; // Don't allow clicks if using external board
+    setInternalBoard((prevBoard) => {
       const newBoard = prevBoard.map((row) => [...row]);
       newBoard[rowIndex][colIndex] = "X";
       return newBoard;
