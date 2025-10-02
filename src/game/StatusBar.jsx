@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const StatusBar = ({ currentPlayer, winner, moveCount, boardSize, onRestart, lastMove }) => {
+function StatusBar ({ currentPlayer, winner, moveCount, boardSize, onRestart, lastMove }) {
 	let status;
 	if (winner === 'draw') {
 		status = 'Draw game';
