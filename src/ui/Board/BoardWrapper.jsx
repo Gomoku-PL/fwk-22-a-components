@@ -1,81 +1,63 @@
-import React, { useState } from 'react';
-import engine from '../../lib/engine'; // Kontrollera att pathen stämmer
-import './BoardWrapper.css';
+import React from "react";
+import "./BoardWrapper.css";
 
-const SIZE = 15;
-
-const BoardWrapper = ({ onCellClick, gameWon }) => {
-  const [board, setBoard] = useState(
-    Array(SIZE).fill(null).map(() => Array(SIZE).fill(null))
-  );
-  const [currentPlayer, setCurrentPlayer] = useState('●');
-
-  const handleCellClick = (row, col) => {
-    // 🚫 Om spelet är vunnet, tillåt inga fler drag
-    if (gameWon) return;
-
-    // 🧠 Använd engine för att försöka placera stenen
-    const newBoard = engine.placeStone(board, row, col, currentPlayer);
-    if (!newBoard) return; // ogiltigt drag (t.ex. cell upptagen)
-
-    // 🟢 Uppdatera state
-    setBoard(newBoard);
-    
-    // 🏆 Kontrollera om detta drag resulterade i vinst
-    const hasWon = engine.checkWin(newBoard, row, col, currentPlayer);
-    
-    if (hasWon) {
-      // 📤 Skicka vinst-information till Game.jsx
-      if (onCellClick) {
-        onCellClick({ row, col, player: currentPlayer, winner: currentPlayer });
-      }
-    } else {
-      // 📤 Skicka vanligt drag
-      if (onCellClick) {
-        onCellClick({ row, col, player: currentPlayer });
-      }
-      setCurrentPlayer(currentPlayer === '●' ? '○' : '●');
-    }
-  };
+/**
+ * Props:
+ * - board: 2D array of null | 'B' | 'W'
+ * - disabled?: boolean  (e.g., game over)
+ * - onCellClick?: ({ row, col }) => void
+ * - className?: string
+ */
+export default function BoardWrapper({
+  board,
+  disabled = false,
+  onCellClick,
+  className = "",
+}) {
+  const size = board?.length ?? 15;
 
   return (
-    <div className="board-wrap">
-      <div className={`board ${gameWon ? 'board-disabled' : ''}`}>
+    <div className={`board-wrap ${className}`}>
+      <div className={`board ${disabled ? "board-disabled" : ""}`}>
         <div className="grid"></div>
-        
-        {/* Koordinater */}
+
+        {/* Top coordinates (A..O based on size) */}
         <div className="coords top">
-          <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span>
-          <span>F</span><span>G</span><span>H</span><span>I</span><span>J</span>
-          <span>K</span><span>L</span><span>M</span><span>N</span><span>O</span>
-        </div>
-        <div className="coords left">
-          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
-          <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+          {"ABCDEFGHIJKLMNO"
+            .slice(0, size)
+            .split("")
+            .map((ch) => (
+              <span key={ch}>{ch}</span>
+            ))}
         </div>
 
-        {/* Overlay med klickbara celler */}
+        {/* Left coordinates (1..size) */}
+        <div className="coords left">
+          {Array.from({ length: size }, (_, i) => (
+            <span key={i}>{i + 1}</span>
+          ))}
+        </div>
+
+        {/* Clickable overlay */}
         <div className="overlay">
-          {board.map((row, rowIndex) => 
-            row.map((cell, colIndex) => (
+          {board.map((row, r) =>
+            row.map((cell, c) => (
               <div
-                key={`${rowIndex}-${colIndex}`}
-                className={`cell ${gameWon ? 'cell-disabled' : ''}`}
-                style={{ gridColumn: colIndex + 1, gridRow: rowIndex + 1 }}
-                onClick={() => handleCellClick(rowIndex, colIndex)}
+                key={`${r}-${c}`}
+                className={`cell ${disabled ? "cell-disabled" : ""}`}
+                style={{ gridColumn: c + 1, gridRow: r + 1 }}
+                onClick={() => !disabled && onCellClick?.({ row: r, col: c })}
               >
                 {cell && (
-                  <div className={`stone ${cell === '●' ? 'black' : 'white'}`}></div>
+                  <div
+                    className={`stone ${cell === "B" ? "black" : "white"}`}
+                  />
                 )}
               </div>
             ))
           )}
         </div>
       </div>
-      <div className="status">TUR: {currentPlayer === '●' ? '● SVART' : '○ VIT'}</div>
     </div>
   );
-};
-
-export default BoardWrapper;
+}
