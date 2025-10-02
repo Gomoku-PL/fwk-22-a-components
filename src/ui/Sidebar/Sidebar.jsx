@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Sidebar = ({ onGameModeChange, onDifficultyChange, onStartGame, onRestart, onHome }) => {
-  const [gameMode, setGameMode] = useState('2-player');
-  const [difficulty, setDifficulty] = useState('NORMAL');
+function Sidebar({
+  onGameModeChange,
+  onDifficultyChange,
+  onStartGame,
+  onRestart,
+  onHome,
+}) {
+  const [gameMode, setGameMode] = useState("2-player");
+  const [difficulty, setDifficulty] = useState("NORMAL");
   const navigate = useNavigate();
 
   const handleGameModeChange = (mode) => {
@@ -21,7 +27,7 @@ const Sidebar = ({ onGameModeChange, onDifficultyChange, onStartGame, onRestart,
     if (onStartGame) {
       onStartGame();
     } else {
-      navigate('/game/room1');
+      navigate("/game/room1");
     }
   };
 
@@ -29,7 +35,7 @@ const Sidebar = ({ onGameModeChange, onDifficultyChange, onStartGame, onRestart,
     if (onHome) {
       onHome();
     } else {
-      navigate('/');
+      navigate("/");
     }
   };
 
@@ -38,15 +44,15 @@ const Sidebar = ({ onGameModeChange, onDifficultyChange, onStartGame, onRestart,
       <div className="group">
         <div className="label">Spelläge</div>
         <div className="segment">
-          <button 
-            className={`seg-btn ${gameMode === '2-player' ? 'active' : ''}`}
-            onClick={() => handleGameModeChange('2-player')}
+          <button
+            className={`seg-btn ${gameMode === "2-player" ? "active" : ""}`}
+            onClick={() => handleGameModeChange("2-player")}
           >
             2 spelare
           </button>
-          <button 
-            className={`seg-btn ${gameMode === 'vs-bot' ? 'active' : ''}`}
-            onClick={() => handleGameModeChange('vs-bot')}
+          <button
+            className={`seg-btn ${gameMode === "vs-bot" ? "active" : ""}`}
+            onClick={() => handleGameModeChange("vs-bot")}
           >
             Mot bot
           </button>
@@ -81,6 +87,6 @@ const Sidebar = ({ onGameModeChange, onDifficultyChange, onStartGame, onRestart,
       </div>
     </aside>
   );
-};
+}
 
 export default Sidebar;
