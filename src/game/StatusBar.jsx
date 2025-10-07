@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function StatusBar ({ currentPlayer, winner, moveCount, boardSize, onRestart, lastMove }) {
+export default function StatusBar ({ currentPlayer, winner, moveCount, boardSize, onRestart, lastMove }) {
 	let status;
 	if (winner === 'draw') {
 		status = 'Draw game';
@@ -35,5 +35,3 @@ StatusBar.defaultProps = {
 	winner: null,
 	lastMove: null,
 };
-
-export default StatusBar;

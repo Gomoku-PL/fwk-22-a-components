@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../ui/Board/BoardWrapper.css"; // Ensure styles are applied
 
-function Board({ board: boardProp, size = 15 }) {
+export default function Board({ board: boardProp, size = 15 }) {
   // If a board prop is provided, use it; otherwise, use internal state for interactivity
   const [internalBoard, setInternalBoard] = useState(
     Array.from({ length: size }, () => Array(size).fill(null))
@@ -36,4 +36,4 @@ function Board({ board: boardProp, size = 15 }) {
   );
 }
 
-export default Board;
+
