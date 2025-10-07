@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ title, children }) => {
+export default function Card ({ title, children }){
     return (
         <div style={styles.card}>
             {title && <h3 style={styles.title}>{title}</h3>}
@@ -31,4 +31,4 @@ Card.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export default Card;
+

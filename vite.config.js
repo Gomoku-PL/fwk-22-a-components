@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "index.js"), // <-- now points to root index.js
+      entry: path.resolve(__dirname, "index.js"),
       name: "GomokuComponents",
       formats: ["es", "cjs"],
       fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
