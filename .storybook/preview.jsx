@@ -19,7 +19,7 @@ const preview = {
 
 
 import { useEffect } from "react";
-import "../src/ui/Board/board.css";
+import "../src/ui/Board/BoardWrapper.css";
 import "../src/styles/reset.css";
 
 function ThemeDecorator(Story, context) {
