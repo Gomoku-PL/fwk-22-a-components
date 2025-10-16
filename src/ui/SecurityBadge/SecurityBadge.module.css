@@ -1,0 +1,317 @@
+.badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(30, 41, 59, 0.9);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    user-select: none;
+    min-width: fit-content;
+}
+
+.badge:hover:not(.disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.badge:focus-visible {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.badge.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.compact {
+    padding: 0.5rem;
+    gap: 0;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: #1e293b;
+}
+
+.label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #f8fafc;
+}
+
+.details {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    min-width: fit-content;
+    white-space: nowrap;
+}
+
+.feature:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.featureIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.75rem;
+    color: #1e293b;
+}
+
+.featureLabel {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #cbd5e1;
+}
+
+.secure {
+    border-color: rgba(34, 197, 94, 0.3);
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.secure .icon,
+.secure .featureIcon {
+    background: #22c55e;
+    color: #14532d;
+}
+
+.warning {
+    border-color: rgba(251, 146, 60, 0.3);
+    background: rgba(251, 146, 60, 0.1);
+}
+
+.warning .icon,
+.warning .featureIcon {
+    background: #fb923c;
+    color: #9a3412;
+}
+
+.insecure {
+    border-color: rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.insecure .icon,
+.insecure .featureIcon {
+    background: #ef4444;
+    color: #7f1d1d;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 0.75rem);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 320px;
+    max-width: 400px;
+    background: #1e293b;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: tooltipFadeIn 0.2s ease;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0.25rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.tooltipHeader {
+    padding: 1rem 1rem 0.5rem 1rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    color: #f8fafc;
+    font-size: 0.875rem;
+}
+
+.tooltipContent {
+    padding: 1rem;
+}
+
+.tooltipDescription {
+    margin: 0 0 1rem 0;
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.tooltipFeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tooltipFeature {
+    padding: 0.75rem;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 6px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    transition: all 0.2s ease;
+}
+
+.tooltipFeature.highlighted {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.tooltipFeatureHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tooltipIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.tooltipFeatureLabel {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #f8fafc;
+}
+
+.tooltipFeatureDescription {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.tooltipArrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #1e293b;
+}
+
+.tooltipArrow::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(148, 163, 184, 0.2);
+}
+
+@media (max-width: 480px) {
+    .tooltip {
+        min-width: 280px;
+        max-width: 90vw;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        transform: none;
+    }
+
+    .tooltipArrow {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .badge {
+        padding: 0.5rem 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .details {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .feature {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .badge,
+    .feature,
+    .tooltipFeature {
+        transition: none;
+    }
+
+    .tooltip {
+        animation: none;
+    }
+
+    .badge:hover:not(.disabled) {
+        transform: none;
+    }
+}
+
+.badge:where([aria-expanded="true"]) .tooltip {
+    display: block;
+}
+
+.badge:where([aria-expanded="false"]) .tooltip,
+.badge:where(:not([aria-expanded])) .tooltip {
+    display: none;
+}
+
+@media (hover: none) {
+    .badge:hover:not(.disabled) {
+        transform: none;
+    }
+
+    .feature:hover {
+        background: rgba(0, 0, 0, 0.2);
+    }
+}
