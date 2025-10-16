@@ -1,0 +1,143 @@
+/* ConsentToggle.module.css */
+.consentToggle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Toggle Button */
+.toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.toggle:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.toggle.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Toggle Track */
+.toggleTrack {
+  display: block;
+  width: 2.5rem;
+  height: 1.25rem;
+  background-color: #cbd5e1;
+  border-radius: 1rem;
+  position: relative;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.toggle.granted .toggleTrack {
+  background-color: #10b981;
+}
+
+.toggle.withdrawn .toggleTrack {
+  background-color: #ef4444;
+}
+
+.toggle:hover:not(.disabled) .toggleTrack {
+  opacity: 0.8;
+}
+
+/* Toggle Thumb */
+.toggleThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle.granted .toggleThumb {
+  transform: translateX(1.25rem);
+}
+
+/* Label Container */
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-grow: 1;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+  margin: 0;
+}
+
+.status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.status.granted {
+  color: #10b981;
+}
+
+.status.withdrawn {
+  color: #ef4444;
+}
+
+/* Description */
+.description {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.4;
+  padding-left: 3.25rem; /* Align with label */
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .label {
+    color: #f9fafb;
+  }
+
+  .description {
+    color: #9ca3af;
+  }
+
+  .toggleTrack {
+    background-color: #4b5563;
+  }
+
+  .toggle:focus-visible {
+    outline-color: #60a5fa;
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .toggleContainer {
+    gap: 0.5rem;
+  }
+  
+  .description {
+    padding-left: 3rem;
+  }
+}
