@@ -4,7 +4,7 @@ import "../ui/Board/BoardWrapper.css"; // Ensure styles are applied
 export default function Board({ board: boardProp, size = 15 }) {
   // If a board prop is provided, use it; otherwise, use internal state for interactivity
   const [internalBoard, setInternalBoard] = useState(
-    Array.from({ length: size }, () => Array(size).fill(null))
+    Array.from({ length: size }, () => Array(size).fill(null)),
   );
   const board = boardProp || internalBoard;
 
@@ -35,5 +35,3 @@ export default function Board({ board: boardProp, size = 15 }) {
     </div>
   );
 }
-
-

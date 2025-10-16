@@ -54,7 +54,7 @@ export default function BoardWrapper({
                   />
                 )}
               </div>
-            ))
+            )),
           )}
         </div>
       </div>

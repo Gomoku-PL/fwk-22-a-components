@@ -1,6 +1,6 @@
 export default {
-    title: "Components/board",
-    component: () => <h1>Wrapper</h1>,
-}
+  title: "Components/board",
+  component: () => <h1>Wrapper</h1>,
+};
 
-export const Default = {}
+export const Default = {};

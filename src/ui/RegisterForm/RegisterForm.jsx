@@ -73,7 +73,7 @@ export default function RegisterForm({
       const confirmError = validateField(
         "confirmPassword",
         formData.confirmPassword,
-        { ...formData, [name]: value }
+        { ...formData, [name]: value },
       );
       setErrors((prev) => ({ ...prev, confirmPassword: confirmError }));
     }
