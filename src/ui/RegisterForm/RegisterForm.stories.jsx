@@ -125,7 +125,7 @@ export const InteractiveDemo = {
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       alert(
-        `Account created successfully!\n\nEmail: ${data.email}\nConsent: ${data.consent}\nTimestamp: ${data.timestamp}`
+        `Account created successfully!\n\nEmail: ${data.email}\nConsent: ${data.consent}\nTimestamp: ${data.timestamp}`,
       );
     };
 
@@ -280,7 +280,7 @@ export const GDPRComplianceDemo = {
       alert(
         `GDPR Compliant Registration!\n\nData collected: Email only\nConsent given: ${
           data.consent ? "Yes" : "No"
-        }\nUser rights: Can request data deletion anytime`
+        }\nUser rights: Can request data deletion anytime`,
       );
     };
 

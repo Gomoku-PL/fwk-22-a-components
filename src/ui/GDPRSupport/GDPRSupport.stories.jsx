@@ -113,7 +113,7 @@ export const WithAllRequestTypes = {
     const handleSubmit = (data) => {
       console.log("Form submitted:", data);
       alert(
-        `Submitted: ${data.requestType} request from ${data.name} (${data.email})`
+        `Submitted: ${data.requestType} request from ${data.name} (${data.email})`,
       );
     };
 
@@ -143,7 +143,7 @@ export const ValidationDemo = {
       alert(
         `Successfully submitted ${
           data.requestType
-        } request!\n\nData: ${JSON.stringify(data, null, 2)}`
+        } request!\n\nData: ${JSON.stringify(data, null, 2)}`,
       );
     };
 
