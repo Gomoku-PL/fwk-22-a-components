@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import styles from './ConsentToggle.module.css';
+import React, { useState } from "react";
+import styles from "./ConsentToggle.module.css";
 
 /**
  * ConsentToggle - A reusable consent toggle component with clear states
- * 
+ *
  * @param {Object} props
  * @param {string} props.purposeId - Unique identifier for the consent purpose
  * @param {string} props.label - Label for the consent toggle
@@ -22,7 +22,7 @@ export default function ConsentToggle({
   onGrant,
   onWithdraw,
   disabled = false,
-  className = ''
+  className = "",
 }) {
   const [isGranted, setIsGranted] = useState(initialValue);
 
@@ -34,7 +34,7 @@ export default function ConsentToggle({
 
     // Fire appropriate callback with payload
     const payload = { purposeId, value: newValue };
-    
+
     if (newValue) {
       onGrant?.(payload);
     } else {
@@ -43,7 +43,7 @@ export default function ConsentToggle({
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === ' ' || event.key === 'Enter') {
+    if (event.key === " " || event.key === "Enter") {
       event.preventDefault();
       handleToggle();
     }
@@ -57,30 +57,32 @@ export default function ConsentToggle({
       <div className={styles.toggleContainer}>
         <button
           id={toggleId}
-          className={`${styles.toggle} ${isGranted ? styles.granted : styles.withdrawn} ${disabled ? styles.disabled : ''}`}
+          className={`${styles.toggle} ${isGranted ? styles.granted : styles.withdrawn} ${disabled ? styles.disabled : ""}`}
           onClick={handleToggle}
           onKeyDown={handleKeyDown}
           disabled={disabled}
           aria-pressed={isGranted}
           aria-describedby={descriptionId}
-          aria-label={`${label} - ${isGranted ? 'Granted' : 'Withdrawn'}`}
+          aria-label={`${label} - ${isGranted ? "Granted" : "Withdrawn"}`}
           type="button"
         >
           <span className={styles.toggleTrack}>
             <span className={styles.toggleThumb} />
           </span>
         </button>
-        
+
         <div className={styles.labelContainer}>
           <label htmlFor={toggleId} className={styles.label}>
             {label}
           </label>
-          <span className={`${styles.status} ${isGranted ? styles.granted : styles.withdrawn}`}>
-            {isGranted ? 'Granted' : 'Withdrawn'}
+          <span
+            className={`${styles.status} ${isGranted ? styles.granted : styles.withdrawn}`}
+          >
+            {isGranted ? "Granted" : "Withdrawn"}
           </span>
         </div>
       </div>
-      
+
       {description && (
         <p id={descriptionId} className={styles.description}>
           {description}

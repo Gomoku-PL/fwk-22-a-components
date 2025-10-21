@@ -15,16 +15,16 @@ A reusable consent toggle component with clear states for granting or withdrawin
 ## Usage
 
 ```jsx
-import { ConsentToggle } from '@gomoku/components';
+import { ConsentToggle } from "@gomoku/components";
 
 function MyApp() {
   const handleGrant = (payload) => {
-    console.log('Consent granted:', payload);
+    console.log("Consent granted:", payload);
     // { purposeId: 'analytics', value: true }
   };
 
   const handleWithdraw = (payload) => {
-    console.log('Consent withdrawn:', payload);
+    console.log("Consent withdrawn:", payload);
     // { purposeId: 'analytics', value: false }
   };
 
@@ -43,16 +43,16 @@ function MyApp() {
 
 ## Props
 
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `purposeId` | `string` | ✅ | - | Unique identifier for the consent purpose |
-| `label` | `string` | ✅ | - | Label for the consent toggle |
-| `description` | `string` | ❌ | - | Optional description text |
-| `initialValue` | `boolean` | ❌ | `false` | Initial consent state |
-| `onGrant` | `function` | ✅ | - | Callback when consent is granted |
-| `onWithdraw` | `function` | ✅ | - | Callback when consent is withdrawn |
-| `disabled` | `boolean` | ❌ | `false` | Whether the toggle is disabled |
-| `className` | `string` | ❌ | `''` | Additional CSS classes |
+| Prop           | Type       | Required | Default | Description                               |
+| -------------- | ---------- | -------- | ------- | ----------------------------------------- |
+| `purposeId`    | `string`   | ✅       | -       | Unique identifier for the consent purpose |
+| `label`        | `string`   | ✅       | -       | Label for the consent toggle              |
+| `description`  | `string`   | ❌       | -       | Optional description text                 |
+| `initialValue` | `boolean`  | ❌       | `false` | Initial consent state                     |
+| `onGrant`      | `function` | ✅       | -       | Callback when consent is granted          |
+| `onWithdraw`   | `function` | ✅       | -       | Callback when consent is withdrawn        |
+| `disabled`     | `boolean`  | ❌       | `false` | Whether the toggle is disabled            |
+| `className`    | `string`   | ❌       | `''`    | Additional CSS classes                    |
 
 ## Accessibility
 
@@ -77,6 +77,7 @@ Both `onGrant` and `onWithdraw` receive a payload object:
 ## Examples
 
 ### Basic Usage
+
 ```jsx
 <ConsentToggle
   purposeId="marketing"
@@ -87,6 +88,7 @@ Both `onGrant` and `onWithdraw` receive a payload object:
 ```
 
 ### With Description
+
 ```jsx
 <ConsentToggle
   purposeId="analytics"
@@ -99,6 +101,7 @@ Both `onGrant` and `onWithdraw` receive a payload object:
 ```
 
 ### Disabled State
+
 ```jsx
 <ConsentToggle
   purposeId="necessary"
@@ -118,6 +121,7 @@ The component uses CSS modules. You can override styles by passing a `className`
 ## Storybook
 
 View all examples and interact with the component in Storybook:
+
 - Basic states (Granted/Withdrawn)
 - With/without description
 - Disabled state
